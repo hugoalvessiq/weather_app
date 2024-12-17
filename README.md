@@ -37,7 +37,7 @@ The goal is to explore web development concepts with **Python Flask**, API consu
 1. **Clone the repository:**
 
    ```bash
-   git clone [https://github.com/seu-usuario/weather-app.git](https://github.com/seu-usuario/weather-app.git)
+   git clone [https://github.com/hugoalvessiq/weather-app.git](https://github.com/hugoalvessiq/weather-app.git)
    cd weather-app
    ```
 
