@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{{ title }} Weather</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='styles/styles.css')}}"
+    />
+    <!-- Google Material Icons -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <div class="weather-header">
+        <h1>Weather in {{ title }}</h1>
+        <p>Temperature: {{ temp }} &deg;C</p>
+        <p>Condition: {{ description }}</p>
+      </div>
+
+      <div class="weather-icon">
+        {% if description == "Clear sky" %}
+        <span class="material-symbols-outlined"> clear_day </span>
+        {% elif description == "Mainly clear" %}
+        <span class="material-symbols-outlined"> partly_cloudy_day </span>
+        {% elif description == "Partly cloudy" %}
+        <span class="material-symbols-outlined"> partly_cloudy_day </span>
+        {% elif description == "Overcast" %}
+        <span class="material-symbols-outlined"> cloud </span>
+        {% elif description == "Fog or depositing rime fog" %}
+        <span class="material-symbols-outlined"> foggy </span>
+        {% elif description == "Drizzle" %}
+        <span class="material-symbols-outlined"> rainy_light </span>
+        {% elif description == "Freezing drizzle" %}
+        <span class="material-symbols-outlined"> rainy_snow </span>
+        {% elif description == "Rain" %}
+        <span class="material-symbols-outlined"> rainy </span>
+        {% elif description == "Freezing rain" %}
+        <span class="material-symbols-outlined"> rainy </span>
+        {% elif description == "Snow fall" %}
+        <span class="material-symbols-outlined"> rainy </span>
+        {% elif description == "Snow grains" %}
+        <div class="snow-grains"></div>
+        {% elif description == "Rain showers" %}
+        <span class="material-symbols-outlined"> rainy_heavy </span>
+        {% elif description == "Snow showers" %}
+        <span class="material-symbols-outlined"> snowing_heavy </span>
+        {% elif description == "Thunderstorm: Slight or moderate" %}
+        <span class="material-symbols-outlined"> thunderstorm </span>
+        {% elif description == "Thunderstorm with hail" %}
+        <span class="material-symbols-outlined"> thunderstorm </span>
+        {% else %}
+        <p>Weather condition: {{ description }}</p>
+        {% endif %}
+      </div>
+      <form action="/weather" method="get" class="city-form">
+        <input
+          type="text"
+          name="city"
+          id="city"
+          placeholder="Enter a city"
+          required
+        />
+        <button type="submit">submit</button>
+      </form>
+      <p class="time">Recorded at: {{ time }}</p>
+    </div>
+  </body>
+</html>
